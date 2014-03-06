@@ -15,18 +15,25 @@ $(document).ready(function () {
   
   }, "Please specify a valid date.");
   
+  
   $.validator.addMethod("equalTo", function (value, element, parameter) {
   	return value == parameter
   }, "Values must match");
   
-  $.validator.addMethod("ssn", function (value, element, parameter) {
-  	return value.match(/^([0-6]\d{2}|7[0-6]\d|77[0-2])([ \-]?)(\d{2})\2(\d{4})$/)
-  }, "Please enter a valid Social Security Number.");
   
   $.validator.addMethod("passwordValid", function (value, element, parameter) {
   	return value.match(/(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,})$/g)
   }, "Please enter a valid password.");
   
+  
+  $.validator.addMethod("postalCodeUS", function(value, element) {
+			return this.optional(element) || /\d{5}-\d{4}$|^\d{5}$/.test(value);
+	}, "The specified US ZIP Code is invalid");
+		
+  
+  $.validator.addMethod("ssn", function (value, element, parameter) {
+  	return value.match(/^([0-6]\d{2}|7[0-6]\d|77[0-2])([ \-]?)(\d{2})\2(\d{4})$/)
+  }, "Please enter a valid Social Security Number.");
   
   
 });
