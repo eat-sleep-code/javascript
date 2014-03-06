@@ -4,5 +4,5 @@
 
 
 function insertStylesheet(stylesheetPath) {
-		$('head').append('<link rel="stylesheet" href="' + stylesheetPath + '" />'); 
+	$('head').append('<link rel="stylesheet" href="' + stylesheetPath + '" />'); 
 };
